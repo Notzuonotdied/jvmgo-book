@@ -5,7 +5,8 @@ import "path/filepath"
 import "strings"
 
 func newWildcardEntry(path string) CompositeEntry {
-	baseDir := path[:len(path)-1] // remove *
+	// remove *
+	baseDir := path[:len(path)-1]
 	compositeEntry := []Entry{}
 
 	walkFn := func(path string, info os.FileInfo, err error) error {
@@ -22,6 +23,7 @@ func newWildcardEntry(path string) CompositeEntry {
 		return nil
 	}
 
+	// Walk的第二个参数是函数
 	filepath.Walk(baseDir, walkFn)
 
 	return compositeEntry

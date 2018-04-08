@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+	// 解析命令行的参数
 	cmd := parseCmd()
 
 	if cmd.versionFlag {

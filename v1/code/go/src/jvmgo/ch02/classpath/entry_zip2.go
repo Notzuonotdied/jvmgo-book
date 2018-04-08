@@ -19,6 +19,7 @@ func newZipEntry2(path string) *ZipEntry2 {
 	return &ZipEntry2{absPath, nil}
 }
 
+// 从zip中提取class文件
 func (self *ZipEntry2) readClass(className string) ([]byte, Entry, error) {
 	if self.zipRC == nil {
 		err := self.openJar()
